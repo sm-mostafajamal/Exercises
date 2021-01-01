@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDos</title>
+</head>
+<body>
+    <h1>ToDos</h1>
+    <script>
+        let stores = [];
+        while(true){
+            let input = prompt('What would you want to do? Type the keyword shown. ->new ->list ->delete ->quit');
+            if('new' === input){
+                todos = prompt('Enter new todos');
+                stores.push({todos})
+                console.log(`${todos} added to the list`);
+            }else if('list' === input){
+                console.log('***********');
+                for(let [key, value] of Object.entries(stores)){
+                        console.log(`${key}: ${value.todos}`);
+                }
+                console.log('***********');
+            }else if('delete' === input){
+                let ind = parseInt(prompt('Enter the index of todo to delete'));
+                console.log(`"${stores[ind].todos}" is removed from todos list.`);
+                stores.splice(ind,1);
+            }else if('quit' === input || 'q' === input){
+                console.log('Thank you for using this app 😄'); break;
+            }else{
+                console.log('Unknown Keyword!!!');
+            }
+        }
+    </script>
+</body>
+</html>
